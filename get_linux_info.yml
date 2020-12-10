@@ -5,7 +5,7 @@
   tasks:
 
     - debug:
-        msg: "running from watsonops"
+        msg: "running from sandbox branch"
 
     - debug:
         msg: "{{ inventory_hostname }}"
@@ -24,8 +24,6 @@
           lscpu | grep CPU
           echo "# -- memory -- #"
           free -g
-
-
       register: my_specs
 
     - debug:
