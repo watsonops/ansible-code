@@ -5,7 +5,7 @@
   tasks:
 
     - debug:
-        msg: "running from watsonops"
+        msg: "running from watsonops - dev branch"
 
     - debug:
         msg: "{{ inventory_hostname }}"
