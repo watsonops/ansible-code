@@ -45,8 +45,7 @@ jobs:
       - name: clone repo
         run: git clone https://github.com/watsonops/ansible-code.git
 
-      - name: Show inventory
+      - name: Run sample playbook
         run: |
-          cd ansible-code/
-          cat inventory
+          ansible-playbook ansible-code/get_linux_info.yml
           
