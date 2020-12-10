@@ -3,6 +3,10 @@
   gather_facts: yes
 
   tasks:
+
+    - debug:
+        msg: "running from watsonops"
+
     - debug:
         msg: "{{ inventory_hostname }}"
   
