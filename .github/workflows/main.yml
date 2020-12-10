@@ -7,8 +7,8 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ sandbox ]
-  pull_request:
-    branches: [ sandbox ]
+  # pull_request:
+  #   branches: [ sandbox ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -24,6 +24,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+
+      - name: Get info
+        run: |
+          echo Actor: ${{ github.actor }}
+          echo This code was committed by: ${{ github.event.commits[0].author.name }}
 
       - name: Update OS
         run: |
