@@ -1,0 +1,29 @@
+---
+- hosts: all
+  gather_facts: yes
+
+  tasks:
+    - debug:
+        msg: "{{ inventory_hostname }}"
+  
+    - name: get spec
+      shell: |
+          echo "# -- user -- #"
+          echo "user: `whoami`"
+          echo "# -- hosntame -- #"
+          echo "hostname: `hostname`"
+          echo "# -- os -- #"
+          cat /etc/os-release | grep -i name
+          echo "# -- network -- #"
+          ip a | grep 192
+          echo "# -- cpu -- #"
+          lscpu | grep CPU
+          echo "# -- memory -- #"
+          free -g
+
+
+      register: my_specs
+
+    - debug:
+        msg: "{{ my_specs.stdout_lines }}"
+
